@@ -169,4 +169,6 @@ function controls = setup_ui(data)
                 strcmp(tg, 'Exploration.DataCursor'));
     delete(htbbs(deltgind));
         
+    setappdata(controls.hfig, 'data', data);
+    
 end

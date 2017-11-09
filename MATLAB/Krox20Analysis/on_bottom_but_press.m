@@ -3,7 +3,6 @@ function on_bottom_but_press(hObject, eventdata, handles, controls)
     data = getappdata(controls.hfig, 'data');
 
     current_z_ind = get(controls.hzsl, 'Value');
-    z_ind_to_micron_depth = double(data.ome_meta.getPixelsPhysicalSizeZ(0).value(ome.units.UNITS.MICROM));
     
     disp(current_z_ind);
     

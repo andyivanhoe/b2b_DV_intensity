@@ -3,10 +3,9 @@ function on_z_slice_selection_changed(hObject, eventdata, handles, controls)
     data = getappdata(controls.hfig, 'data');
     selection_ind = eventdata.NewValue;
 
-    z_ind_to_micron_depth = double(data.ome_meta.getPixelsPhysicalSizeZ(0).value(ome.units.UNITS.MICROM));
-    slice_relative_to_top = round(data.z_offsets((controls.hzradios == selection_ind)) / z_ind_to_micron_depth);
+    target_slice = round(data.bottom_slice_index + data.z_offsets((controls.hzradios == selection_ind)) * (data.top_slice_index - data.bottom_slice_index));
     
-    set(controls.hzsl, 'Value', (data.top_slice_index - slice_relative_to_top));
+    set(controls.hzsl, 'Value', target_slice);
     on_z_pos_changed(controls.hzsl, eventdata, handles, controls);
     update_image(controls);
     
