@@ -5,8 +5,9 @@ function krox_20_base_script()
     addpath(genpath(fileparts(curr_dir)));
     
     %% Parameters
-    z_offsets = [35, 40, 45];
-    channel_names = {'Ncad', 'Krox20'};
+    z_offsets = [.25, .5, .75];
+    channel_names = {'cdh2-tFT'};
+%     channel_names = {'pard3-EGFP', 'membrane label'};
     scale_bar_length_um = 20;
     midline_definition_method = 'max';  %'none', 'max' or 'mean'
 
@@ -27,7 +28,7 @@ function krox_20_base_script()
     end
     
     tstamp = strrep(datestr(now), ':', '_');
-    out_folder = [out_folder filesep tstamp ' Ncad Krox Analysis'];
+    out_folder = [out_folder filesep tstamp ' basal-basal profile output'];
     mkdir(out_folder)
     data.out_folder = out_folder;
     dlmwrite([data.out_folder filesep 'results.csv'], []);

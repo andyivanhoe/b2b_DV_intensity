@@ -8,7 +8,7 @@ function on_z_pos_changed(hObject, eventdata, handles, controls)
     update_image(controls)
     
     % enable edge selection only if a relevant frame is imaged
-    edge_buts = [controls.hmidlbut, controls.hledgebut, controls.hredgebut];
+    edge_buts = [controls.hledgebut, controls.hredgebut];
     rh_buts = [controls.hrh4but, controls.hrh6but];
     if isfield(data, 'top_slice_index')
         if ~isempty(data.top_slice_index)
