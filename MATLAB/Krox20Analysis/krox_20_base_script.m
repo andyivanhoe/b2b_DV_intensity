@@ -4,6 +4,9 @@ function krox_20_base_script()
     curr_dir = fileparts(mfilename('fullpath'));
     addpath(genpath(fileparts(curr_dir)));
     
+    %% Initialises logging, as per https://github.com/openmicroscopy/bioformats/issues/2233
+    bfInitLogging()
+    
     %% Parameters
     z_offsets = [.25, .5, .75];
     channel_names = {'cdh2-tFT'};
