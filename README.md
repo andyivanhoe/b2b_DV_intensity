@@ -10,7 +10,7 @@ https://www.linkedin.com/in/doug-kelly-794a8736
 
 Forked this code in November 2017, with Doug and myself tinkering to achieve my image processing needs.
 
-Renamed this repo 2017-11-15 to represent divergence from the purpose of Claire's orginal code
+Cloned and made into this new repo on 2017-11-15 to represent divergence from the purpose of Claire's orginal code
 
 Getting started:
 
