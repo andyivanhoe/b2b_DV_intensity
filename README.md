@@ -1,11 +1,28 @@
-# ClaireDataAnalysis
-Scripts and tools for automated image processing for Claire PhD project
+# Andy Data Analysis
 
+Scripts and tools for automated image processing for Andy's project of cell polarity and adherens junctions
+
+Codebase written by Doug Kelly for Claire's PhD project:
 v 1.0
 Doug Kelly
 https://www.linkedin.com/in/doug-kelly-794a8736
 2016-03-11
 
+Forked this code in November 2017, with Doug and myself tinkering to achieve my image processing needs.
+
+Renamed this repo 2017-11-15 to represent divergence from the purpose of Claire's orginal code
+
+Getting started:
+
+In MATLAB command line type:
+>> krox_20_base();
+
+
+REAME from original repo:
+
+# ClaireDataAnalysis
+Scripts and tools for automated image processing for Claire PhD project
+Various software tools written for analysis of lumen opening and membrane retraction in zebrafish. 
 
 Getting started:
 
