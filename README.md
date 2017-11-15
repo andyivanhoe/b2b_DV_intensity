@@ -15,10 +15,10 @@ Renamed this repo 2017-11-15 to represent divergence from the purpose of Claire'
 Getting started:
 
 In MATLAB command line type:
->> krox_20_base();
+krox_20_base();
 
 
-REAME from original repo:
+README from original repo:
 
 # ClaireDataAnalysis
 Scripts and tools for automated image processing for Claire PhD project
