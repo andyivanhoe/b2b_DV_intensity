@@ -8,9 +8,7 @@ Doug Kelly
 https://www.linkedin.com/in/doug-kelly-794a8736
 2016-03-11
 
-Forked this code in November 2017, with Doug and myself tinkering to achieve my image processing needs.
-
-Cloned and made into this new repo on 2017-11-15 to represent divergence from the purpose of Claire's orginal code
+Forked Doug's code in November 2017. Cloned this codebase into a new repo on 2017-11-15 to represent divergence from the purpose of Claire's orginal code,
 
 Getting started:
 
