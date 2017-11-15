@@ -1,6 +1,6 @@
 # Andy Data Analysis
 
-Scripts and tools for automated image processing for Andy's project of cell polarity and adherens junctions
+Scripts and tools for automated image processing for Andy's project on cell polarity and adherens junctions
 
 Codebase written by Doug Kelly for Claire's PhD project:
 v 1.0
