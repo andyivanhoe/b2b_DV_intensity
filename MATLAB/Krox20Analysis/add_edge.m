@@ -16,7 +16,7 @@ function data = add_edge(edg, controls, data)
 %     y = linspace(cods(1,2), cods(2,2)); % Extract y-values along the impoly line
 %     y2 = linspace(cods(1,2), cods(2,2), (cods(2,2) - cods(1,2)));    % Scale linspace to size of line        
 %     y3 = uint8(y2);    % Make integer for every y-pixel along the line
-%     y3 = y3.';  % Transpose y-pixel values along impoly line from a row to a column
+%edges     y3 = y3.';  % Transpose y-pixel values along impoly line from a row to a column
 %     
 %     
     % update UI

@@ -9,6 +9,8 @@ function on_edge_button_press(hObject, eventdata, handles, controls)
 % %        data = calculate_rhombomere_extents(data, controls); 
 % %     end
     
-    setappdata(controls.hfig, 'data', data);
+   setappdata(controls.hfig, 'data', data);
+    
+   assignin('base', 'test', data)
     
 end
