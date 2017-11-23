@@ -25,16 +25,13 @@ function on_image_click(hObject, eventdata, handles, controls)
 
     data.current_edge = impoly(controls.hax, 'Closed',false);
     
+    cods = getPosition(data.current_edge); % Not sure if this line is working
+    
     cods = getPosition(data.current_edge);
-    
     y = linspace(cods(1,2), cods(2,2)); % Extract y-values along the impoly line
-    
-    %%TODO: replace 42 with 
-    y2 = linspace(cods(1,2), cods(2,2), (cods(2,2) - cods(1,2)));    % Scale linspace to size of line
-    
-       
+    y2 = linspace(cods(1,2), cods(2,2), (cods(2,2) - cods(1,2)));    % Scale linspace to size of line        
     y3 = uint8(y2);    % Make integer for every y-pixel along the line
-    y3 = y3.';  % Transpose y-pixel values along impoly line from a row to a column
+    data.current_edge = y3.';  % Transpose y-pixel values along impoly line from a row to a column
     
     setappdata(controls.hfig, 'data', data);
     

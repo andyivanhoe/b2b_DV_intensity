@@ -1,6 +1,10 @@
 function edge_valid = check_edge_validity(data, edge)
 
-    % check that the drawn edge spans rhombomeres 4-6
+    % check that the drawn edge spans rhombomeres 4-6 - replace this
+    % eventually with...
+    
+    % check that the drawn edge spans the standard ROI box/standardised A-P
+    % distanct/number of pixels
     
     if isempty(edge.rhombomereLimits)
         % for now, allow edges to be drawn if no rhombomeres have been
@@ -9,6 +13,7 @@ function edge_valid = check_edge_validity(data, edge)
         return;
     end
     
+    % What is the below code doing???
     theta = -deg2rad(edge.tissueRotation);
     rotMatrix = [cos(theta) -sin(theta); sin(theta) cos(theta)];
     c = [double(data.ome_meta.getPixelsSizeY(0).getNumberValue()), ...
