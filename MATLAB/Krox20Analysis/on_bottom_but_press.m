@@ -10,6 +10,7 @@ function on_bottom_but_press(hObject, eventdata, handles, controls)
         set(zr, 'Enable', 'on');
     end
     
+    set(controls.hsetbotbut, 'Enable', 'off');
     set(controls.hzradios(1), 'Value', 1);
     set([controls.hledgebut, controls.hredgebut], 'Enable', 'on');
     

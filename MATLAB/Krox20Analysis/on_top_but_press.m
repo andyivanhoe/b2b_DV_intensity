@@ -18,6 +18,7 @@ function on_top_but_press(hObject, eventdata, handles, controls)
     end
     
     set(controls.hsetbotbut, 'Enable', 'on');
+    set(controls.hsettopbut, 'Enable', 'off');
 
     data.top_slice_index = round(current_z_ind);
     setappdata(controls.hfig, 'data', data);    
