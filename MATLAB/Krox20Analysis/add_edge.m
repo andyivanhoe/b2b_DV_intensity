@@ -16,24 +16,50 @@ function data = add_edge(edg, controls, data)
     
     if isa(data.current_edge, 'impoly')
         data.current_edge = data.current_edge.getPosition
-        % Extract y-values along the impoly line - this line of code is
-        % redundant
-        % data.current_edge = linspace(data.current_edge(1,2), data.current_edge(2,2));
+        
+        % Extract  the number ofy-values along the impoly line using following equation:
+        % linspace(data.current_edge(1,2), data.current_edge(2,2));
+        
         % Scale linspace to size of line
         data.current_edge = linspace(data.current_edge(1,2), data.current_edge(2,2), (data.current_edge(2,2) - data.current_edge(1,2)));
+        
         % Make integer for every y-pixel along the line
-        % data.current_edge = uint8(data.current_edge);
+        
+        % Alternativies code is: data.current_edge = uint8(data.current_edge); using uint8 instead of round()
         data.current_edge = round(data.current_edge);
+        
         % Transpose y-pixel values along impoly line from a row to a column
         data.current_edge = data.current_edge.'; 
+        
+        data.edges = [data.edges; Edges()]; % Substructure edges wthin data is now having an extra element added to it called Edges()
+        data.edges(end).(edg) = data.current_edge;  % Going to the end of the edges element (which is a substructure within data struct and adding another element called edg - which equals a string 'L' or 'R' and adding this
+        data.edges(end).(['hl' edg]) = line(data.current_edge(:,1), ...
+            data.current_edge(:,2), ...
+            'Color', 'r', ...
+            'Visible', vis);
+        
+        %%TODO: If the above code works, I need to make it that the
+        %%appropriate checkbox is ticked
+        % Also, how does the current code deal with left edge and right
+        % edge separately?
+        % Finally (for now), how does the code store the different edge
+        % details for each image?
+        
+        % These edges need to remain on display and there could be an
+        % 'Analyze' button that I press and this will them work out
+        % basal-to-basal distance and do improfile (or extract values directly from matrix of image intensities)
+        % all within a box/boundary of set AP disance (if this box is user
+        % coontrollable, great!
+        
     else
-        % Intentionally left blank
+        % Check that line has been drawn
+        disp('Draw edge by clicking on image before pressing edge button')
+        
+        % How do I make this disp appear in a big box over the image?
+        % Otherwise, I guess I can conform myself with seeing it in the
+        % workspace
     end
-    data.edges(end).(edg) = data.current_edge;
-    data.edges(end).(['hl' edg]) = line(data.current_edge(:,1), ...
-        data.current_edge(:,2), ...
-        'Color', 'r', ...
-        'Visible', vis);
+    
 end
 
                 
