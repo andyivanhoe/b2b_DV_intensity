@@ -15,21 +15,26 @@ function data = add_edge(edg, controls, data)
     end
     
     if isa(data.current_edge, 'impoly')
-        data.current_edge = data.current_edge.getPosition
+        % data.current_edge = data.current_edge.getPosition  % similar to
+        % doug's code, but does not work for me --> is it becase I am using
+        % impoly while he used imfreehand?
+        
+        data.current_edge = getPosition(data.current_edge);
         
         % Extract  the number ofy-values along the impoly line using following equation:
         % linspace(data.current_edge(1,2), data.current_edge(2,2));
         
         % Scale linspace to size of line
-        data.current_edge = linspace(data.current_edge(1,2), data.current_edge(2,2), (data.current_edge(2,2) - data.current_edge(1,2)));
+        % data.current_edge = linspace(data.current_edge(1,2), data.current_edge(2,2), (data.current_edge(2,2) - data.current_edge(1,2)));
         
         % Make integer for every y-pixel along the line
         
         % Alternativies code is: data.current_edge = uint8(data.current_edge); using uint8 instead of round()
-        data.current_edge = round(data.current_edge);
+        
+        % data.current_edge = round(data.current_edge);
         
         % Transpose y-pixel values along impoly line from a row to a column
-        data.current_edge = data.current_edge.'; 
+        % data.current_edge = data.current_edge.'; 
         
         data.edges = [data.edges; Edges()]; % Substructure edges wthin data is now having an extra element added to it called Edges()
         data.edges(end).(edg) = data.current_edge;  % Going to the end of the edges element (which is a substructure within data struct and adding another element called edg - which equals a string 'L' or 'R' and adding this
@@ -38,8 +43,8 @@ function data = add_edge(edg, controls, data)
             'Color', 'r', ...
             'Visible', vis);
         
-        %%TODO: If the above code works, I need to make it that the
-        %%appropriate checkbox is ticked
+        % TODO: If the above code works, I need to make it that the
+        % appropriate checkbox is ticked
         % Also, how does the current code deal with left edge and right
         % edge separately?
         % Finally (for now), how does the code store the different edge
