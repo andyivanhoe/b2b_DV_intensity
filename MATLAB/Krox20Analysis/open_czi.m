@@ -37,7 +37,7 @@ function open_czi()
     data.czi_reader = bfGetReader([folder filesep files_out(1).name]);
     data.im = bfGetPlane(data.czi_reader, ...
         data.czi_reader.getIndex(0, 0, 0) + 1);
-    data.ome_meta = data.czi_reader.getMetadataStore();
+    data.ome_meta = data.czi_reader.getMetadataStore(); % http://docs.openmicroscopy.org/ome-model/5.5.4/
     data.z_offsets = z_offsets;
     data.channel_names = channel_names;
     data.scale_bar_length_um = scale_bar_length_um;
