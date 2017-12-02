@@ -38,6 +38,9 @@ function open_czi()
     data.im = bfGetPlane(data.czi_reader, ...
         data.czi_reader.getIndex(0, 0, 0) + 1);
     data.ome_meta = data.czi_reader.getMetadataStore(); % http://docs.openmicroscopy.org/ome-model/5.5.4/
+    data.stackSizeX = data.ome_meta.getPixelsSizeX(0).getValue(); % image width, pixels 
+    data.stackSizeY = data.ome_meta.getPixelsSizeY(0).getValue(); % image height, pixels
+    data.stackSizeZ = data.ome_meta.getPixelsSizeZ(0).getValue(); % number of Z slices
     data.z_offsets = z_offsets;
     data.channel_names = channel_names;
     data.scale_bar_length_um = scale_bar_length_um;
