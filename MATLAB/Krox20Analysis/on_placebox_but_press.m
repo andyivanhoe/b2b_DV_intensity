@@ -10,9 +10,9 @@ function on_placebox_but_press(hObject, eventdata, handles, controls)
         (80 / double(data.ome_meta.getPixelsPhysicalSizeY(0).value(ome.units.UNITS.MICROM)))], ...
         'EdgeColor', 'r')
     
-    data.top_y = round(data.stackSizeY * 0.16)
+    data.box_top_y = round(data.stackSizeY * 0.16)
      
-    data.bot_y = round(data.stackSizeY * 0.16) +  (80 / double(data.ome_meta.getPixelsPhysicalSizeY(0).value(ome.units.UNITS.MICROM)))
+    data.box_bottom_y = round(data.stackSizeY * 0.16) +  (80 / double(data.ome_meta.getPixelsPhysicalSizeY(0).value(ome.units.UNITS.MICROM)))
     
 end
 
