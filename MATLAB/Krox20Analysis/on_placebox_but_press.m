@@ -6,8 +6,14 @@ function on_placebox_but_press(hObject, eventdata, handles, controls)
     
     % Work on height of box - currently set to 80. I want it to be 80
     % MICRONS
-    rectangle('Position', [0, round(data.stackSizeY * 0.16), data.stackSizeX, (80 / double(data.ome_meta.getPixelsPhysicalSizeY(0).value(ome.units.UNITS.MICROM)))], 'EdgeColor', 'r')
-
+    rectangle('Position', [0, round(data.stackSizeY * 0.16), data.stackSizeX, ...
+        (80 / double(data.ome_meta.getPixelsPhysicalSizeY(0).value(ome.units.UNITS.MICROM)))], ...
+        'EdgeColor', 'r')
+    
+    data.top_y = round(data.stackSizeY * 0.16)
+     
+    data.bot_y = round(data.stackSizeY * 0.16) +  (80 / double(data.ome_meta.getPixelsPhysicalSizeY(0).value(ome.units.UNITS.MICROM)))
+    
 end
 
 % 
