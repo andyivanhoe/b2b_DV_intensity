@@ -1,7 +1,7 @@
 classdef Edges
     
     properties
-        z = 0;                                  % z plane in which edges are defined
+        z = [];                                  % z plane in which edges are defined
 %         timepoint = 1;                          % timepoint for which edges are defined
 %         timestamp = 0;                          % time relative to start of timecourse in minutes
         
