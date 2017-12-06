@@ -1,27 +1,15 @@
 function data = add_edge(edg, controls, data)
 
-% Do not do any of the checks that Doug did in original code, such as:
-    % check whether current z plane exists in array of stored edges...
-% Instead, try to just go to output
-
-    % Z = %TODO - define this as 25%, 50% or 75% to match z-offset, but calculate it...
-    %if I just click on the checkboxes to take me to the correct slice,
-    %however, I do not need to do this! Add as a feature request to avoid
-    %problems later, but right now I think I can ignor it
-
     vis = 'off';
     if get(controls.hshowchk, 'Value')
         vis = 'on';
     end
     
     if isa(data.current_edge, 'impoly')
-        % data.current_edge = data.current_edge.getPosition  % similar to
-        % doug's code, but does not work for me --> is it becase I am using
-        % impoly while he used imfreehand?
-        
+                
         data.current_edge = getPosition(data.current_edge);
         
-        % Extract  the number ofy-values along the impoly line using following equation:
+        % Extract  the number of y-values along the impoly line using following equation:
         % linspace(data.current_edge(1,2), data.current_edge(2,2));
         
         % Scale linspace to size of line
@@ -48,10 +36,8 @@ function data = add_edge(edg, controls, data)
         
         % TODO: If the above code works, I need to make it that the
         % appropriate checkbox is ticked
-        % Also, how does the current code deal with left edge and right
-        % edge separately?
-        % Finally (for now), how does the code store the different edge
-        % details for each image?
+        
+        % How does the code store the different edge details for each image?
         
         % These edges need to remain on display and there could be an
         % 'Analyze' button that I press and this will them work out
@@ -68,34 +54,19 @@ function data = add_edge(edg, controls, data)
         % workspace
     end
     
-end
+end     % Remove this 'end' once I get update UI code working
 
+% update UI
+    edg_let = {'L', 'R'};
+    if any(data.edges((ts == t) & (zs == z)).edgeValidity(strcmp(edg_str, edg),:))
+        set(controls.hffchecks((data.z_offsets == z), (strcmp(edg_let, edg))), ...
+        'Value', 1);
+    end
+end
+    show_edges(controls, data);
+    kids = get(controls.hax, 'Children');
+    delete(kids(strcmp(get(kids, 'Type'), 'hggroup')));
                 
-% % %% Chunk
-% % 
-% % 
-% % 
-% %     
-% % %    data.current_edge_cods = getPosition(data.current_edge); - a better
-% % %    way of doing this, based on Doug's code is in the line above.
-% % % Is there any problem with reassigning to the same variable name? Or is it
-% % % okay because we are dealing with a structure which is not in the
-% % % workspace? --> Dynamically renaming variables?
-% % % 
-% % %     
-% % %             
-% % %         
-% % %      
-% %     
-% %     
-% %     
-% %    
-% %    
-% % %%
-% % 
-% %         
-% %         
-% %         
 % %         %% Older code I have been playing around with
 % %     z = round((data.top_slice_index -  round(get(controls.hzsl, 'Value'))) * ...
 % %         double(data.ome_meta.getPixelsPhysicalSizeZ(0).value(ome.units.UNITS.MICROM)));
