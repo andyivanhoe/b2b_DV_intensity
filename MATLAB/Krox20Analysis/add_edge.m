@@ -1,5 +1,8 @@
 function data = add_edge(edg, controls, data)
     
+    z = round((data.top_slice_index -  round(get(controls.hzsl, 'Value'))) * ...
+        double(data.ome_meta.getPixelsPhysicalSizeZ(0).value(ome.units.UNITS.MICROM)));
+    
     vis = 'off';
     if get(controls.hshowchk, 'Value')
         vis = 'on';
@@ -22,6 +25,10 @@ function data = add_edge(edg, controls, data)
         % else...
         
         % Now I put in my check for whether current z plane exisits in array of stored edges...
+        % Base this on whether hffcheck boxes are ticked or not
+        
+        % If no data has been inputted for this current z plane, enter the
+        % data into the array of stored edges as follow:
         
         data.current_edge = getPosition(data.current_edge);
         
@@ -35,29 +42,25 @@ function data = add_edge(edg, controls, data)
             'Color', 'r', ...
             'Visible', vis);
     end
-end
-%     if isa(data.current_edge, 'impoly')
-%                 
-%         data.current_edge = getPosition(data.current_edge);
-%         
-%        
-%         
-%         data.edges = [data.edges; Edges()]; % Substructure edges wthin data is now having an extra element added to it called Edges()
-%         data.edges(end).z = data.curr_z_plane; 
-%         data.edges(end).(edg) = data.current_edge;  % Going to the end of the edges element ...
-%         % (which is a substructure within data struct and adding another element called edg - which equals a string 'L' or 'R' and adding this
-%         
-%         data.edges(end).(['hl' edg]) = line(data.current_edge(:,1), ...
-%             data.current_edge(:,2), ...
-%             'Color', 'r', ...
-%             'Visible', vis);
-%     else
-%         % Check that line has been drawn
-%         disp('Draw edge by clicking on image before pressing edge button')
-%         
-%     end
     
-% Remove this 'end' once I get update UI code working
+%     % Update UI checkboxes with new data inputted
+%     edg_let = {'L', 'R'};
+%    
+%     set(controls.hffchecks(strcmp(edg_let, edg)), 'Value', 1);
+end
+
+% 
+% Update UI checkboxes with new data inputted
+% edg_let = {'L', 'R'};
+% data_z = {'
+%     set(controls.hffchecks.hffcheck_row((data.z_offsets == z), (strcmp(edg_let, edg))), 'Value', 1);
+
+% controls.hffchecks = [controls.hffchecks; hffcheck_row];
+
+% show_edges(controls, data);
+% kids = get(controls.hax, 'Children');
+% delete(kids(strcmp(get(kids, 'Type'), 'hggroup')));
+
 
 % update UI
 %     edg_let = {'L', 'R'};

@@ -26,7 +26,7 @@ function show_edges(controls, data)
     if get(controls.hshowchk, 'Value')
         
         % access the edges structure and draw the edges
-        edgs = {'L', 'M', 'R', 'Rh4', 'Rh6'};
+        edgs = {'L', 'R'};
         kids = get(controls.hax, 'Children');
         delete(kids(strcmp(get(kids, 'Type'), 'patch')));
         if ~isempty(data.edges)
