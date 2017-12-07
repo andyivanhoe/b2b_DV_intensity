@@ -21,8 +21,24 @@ function open_czi()
     if (folder == 0) 
         return;
     end
-
-   %% Get CZI files and display first z-slice
+    
+%     %% Choose and setup output folder
+%     out_folder = uigetdir(folder, ...
+%         'Choose a location to save the output to');
+%     
+%     if (out_folder == 0)
+%         return;
+%     end
+%     
+%     tstamp = strrep(datestr(now), ':', '_');
+%     out_folder = [out_folder filesep tstamp ' basal-basal profile output'];
+%     mkdir(out_folder)
+%     data.out_folder = out_folder;
+%     dlmwrite([data.out_folder filesep 'results.csv'], []);
+%     data.in_folder = folder;
+   
+    
+    %% Get CZI files and display first z-slice
     disp('Loading files...');
     [files_out, timestamps] = order_files(folder);
     
