@@ -68,7 +68,7 @@ function on_next_button_press(hObject, eventdata, handles, controls)
         fprintf(fid,hdr_string);
         fclose(fid);
         busy_dlg(busyOutput);
-        msgbox('Reached the end of the current timecourse!');
+        msgbox('Completed all edges for this file - well done!');
         close(controls.hfig);
     end
 
