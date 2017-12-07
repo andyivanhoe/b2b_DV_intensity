@@ -4,6 +4,8 @@ function on_edge_button_press(hObject, eventdata, handles, controls)
 
     edg = get(hObject, 'Tag');
     data = add_edge(edg, controls, data);
+    data = calc_yline(controls, data)
+   
 % %     if (strcmp(edg, 'Rh4') || strcmp(edg, 'Rh6'))
 % %        data = calculate_rhombomere_extents(data, controls); 
 % %     end

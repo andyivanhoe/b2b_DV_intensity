@@ -1,6 +1,6 @@
  % Extract  the number of y-values along the impoly edge
  
- function yline = calc_yline(data, edges)
+ function data = calc_yline(controls, data)
  
  % TODO - creata for loop to go through all stored edges (if I am doing at
  % the end may not be able ot use data.current_edge
