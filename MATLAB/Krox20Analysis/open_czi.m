@@ -65,6 +65,7 @@ function open_czi()
     data.controls = controls;
     data.curr_z_plane = [];
     data.current_edge = [];
+    data.current_edge_line = [];
     %data.midline_definition_method = midline_definition_method;
     setappdata(controls.hfig, 'data', data);
     
