@@ -18,7 +18,7 @@ function on_z_pos_changed(hObject, eventdata, handles, controls)
             if any(data.curr_z_plane == target_slices)
                 set(edge_buts, 'Enable', 'on');
             else
-                set(edge_buts, 'Enable', 'off');
+                set(edge_buts, 'Enable', 'off');    % Prevents edges being added when not at a desired z_offsets z-slice
             end
         else
             set(edge_buts, 'Enable', 'on');

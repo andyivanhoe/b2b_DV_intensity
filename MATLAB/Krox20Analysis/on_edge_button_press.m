@@ -11,6 +11,4 @@ function on_edge_button_press(hObject, eventdata, handles, controls)
     
    setappdata(controls.hfig, 'data', data);
     
-%   assignin('base', 'test', data)
-    
 end

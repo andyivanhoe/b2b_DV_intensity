@@ -32,6 +32,7 @@ function open_czi()
     
     data.edges = [];
     data.top_slice_index = [];
+    data.bottom_slice_index = [];
     data.filename = files_out(1).name;
     %data.timepoint = 1; 
     data.czi_reader = bfGetReader([folder filesep files_out(1).name]);
@@ -46,6 +47,8 @@ function open_czi()
     data.scale_bar_length_um = scale_bar_length_um;
     controls = setup_ui(data);
     data.controls = controls;
+    data.curr_z_plane = [];
+    data.current_edge = [];
     %data.midline_definition_method = midline_definition_method;
     setappdata(controls.hfig, 'data', data);
     
