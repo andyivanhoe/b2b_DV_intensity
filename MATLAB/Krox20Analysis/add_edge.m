@@ -10,9 +10,9 @@ function data = add_edge(edg, controls, data)
     
     if ~isa(data.current_edge, 'impoly')
         
-        disp('Draw edge by clicking on image before pressing edge button')
+        msgbox('Draw edge by clicking on image before pressing edge button')
         return
-        
+       
     else
         % I need to put in a check here that checks the edge spans the top
         % to bottom of the red box placed over the image - wrap this up in
@@ -32,6 +32,21 @@ function data = add_edge(edg, controls, data)
         
         data.current_edge = getPosition(data.current_edge);
         
+        data.current_edge_line = linspace(data.current_edge(1,2), ...
+            data.current_edge(end,2), (data.current_edge(end,2) - data.current_edge(1,2)));
+        data.current_edge_line = round(data.current_edge_line);
+        data.current_edge_line = data.current_edge_line.';
+        
+        if ~ismember(data.box_top_y, data.current_edge_line) || ...
+                ~ismember(data.box_bottom_y, data.current_edge_line);
+            msgbox('Line must span both top and bottom of box');
+        % Do I need to put in a return here? What that my problem?
+        % If I do not draw a proper line, check it is not added by code
+        % below
+       
+        else
+        end 
+       
         data.edges = [data.edges; Edges()]; % Substructure edges wthin data is now having an extra element added to it called Edges()
         data.edges(end).z = data.curr_z_plane; 
         data.edges(end).(edg) = data.current_edge;  % Going to the end of the edges element ...
@@ -43,6 +58,13 @@ function data = add_edge(edg, controls, data)
             'Visible', vis);
     end
     
+    % Check that the drawn line spans the 80 um box before adding to data
+%     if ~ismember(data.box_top_y, data.current_edge_line) || ...
+%            ~ismember(data.box_bottom_y, data.current_edge_line);
+%        
+%        msgbox('Line must span both top & bottom of box');
+%        return
+%     end
 %     % Update UI checkboxes with new data inputted
 %     edg_let = {'L', 'R'};
 %    

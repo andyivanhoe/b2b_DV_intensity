@@ -15,6 +15,8 @@ function on_placebox_but_press(hObject, eventdata, handles, controls)
     % Bottom y value needs rounding to integer so I can use pixels again
     data.box_bottom_y = round(round(data.stackSizeY * 0.16) +  (80 / double(data.ome_meta.getPixelsPhysicalSizeY(0).value(ome.units.UNITS.MICROM))))
     
+    setappdata(controls.hfig, 'data', data);
+    
 end
 
 % 

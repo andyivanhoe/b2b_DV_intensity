@@ -9,7 +9,8 @@
     % linspace(data.current_edge(1,2), data.current_edge(2,2));
         
     % Scale linspace to size of line
-    data.current_edge_line = linspace(data.current_edge(1,2), data.current_edge(2,2), (data.current_edge(2,2) - data.current_edge(1,2)));
+    data.current_edge_line = linspace(data.current_edge(1,2), ...
+        data.current_edge(end,2), (data.current_edge(end,2) - data.current_edge(1,2)));
         
     % Make integer for every y-pixel along the line
     data.current_edge_line = round(data.current_edge_line);
